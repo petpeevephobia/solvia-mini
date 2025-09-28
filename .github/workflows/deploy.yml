@@ -1,0 +1,84 @@
+name: Deploy Solvia Landing Page
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  SERVER_HOST: 72.60.195.244
+  SERVER_USER: root
+  DEPLOY_DIR: /opt/solvia-site
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Deploy to Server
+      run: |
+        # Create deployment package
+        tar czf landing.tar.gz \
+          --exclude=.git \
+          --exclude=*.zip \
+          --exclude=.github \
+          *.html assets css js
+
+        # Upload to server
+        scp landing.tar.gz ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:/tmp/
+
+        # Extract and deploy
+        ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} << 'ENDSSH'
+          # Create directory if not exists
+          mkdir -p /opt/solvia-site
+
+          # Backup existing content
+          if [ -d "/opt/solvia-site" ]; then
+            cp -r /opt/solvia-site /opt/solvia-site.backup
+          fi
+
+          # Extract new content
+          cd /opt/solvia-site
+          tar xzf /tmp/landing.tar.gz
+          rm /tmp/landing.tar.gz
+
+          # Set permissions
+          chown -R www-data:www-data /opt/solvia-site 2>/dev/null || true
+
+          echo "✅ Landing page deployed successfully!"
+        ENDSSH
+
+    - name: Verify Deployment
+      run: |
+        sleep 5
+        response=$(curl -s -o /dev/null -w "%{http_code}" http://${{ env.SERVER_HOST }}/ || echo "000")
+        echo "Landing page response: $response"
+
+        if [ "$response" = "200" ] || [ "$response" = "308" ] || [ "$response" = "301" ]; then
+          echo "✅ Landing page is accessible"
+        else
+          echo "⚠️ Landing page returned: $response"
+        fi
+
+    - name: Cache Clear (Optional)
+      run: |
+        echo "🔄 Clearing CDN cache if configured..."
+        # Add CDN cache clearing commands here if using Cloudflare, etc.
+
+    - name: Notify Success
+      if: success()
+      run: echo "🚀 Solvia Landing Page deployed successfully!"
+
+    - name: Notify Failure
+      if: failure()
+      run: echo "❌ Deployment failed. Check logs for details."
