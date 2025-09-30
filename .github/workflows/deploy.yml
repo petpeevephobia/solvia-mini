@@ -34,33 +34,23 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        # Create deployment package
-        tar czf landing.tar.gz \
-          --exclude=.git \
-          --exclude=*.zip \
-          --exclude=.github \
-          *.html assets css js
-
-        # Upload to server
-        scp -o StrictHostKeyChecking=no landing.tar.gz ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:/tmp/
-
-        # Extract and deploy
         ssh -o StrictHostKeyChecking=no ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} << 'ENDSSH'
-          # Create directory if not exists
-          mkdir -p /opt/solvia-site
+          set -e  # Exit on any error
 
-          # Backup existing content
-          if [ -d "/opt/solvia-site" ]; then
-            cp -r /opt/solvia-site /opt/solvia-site.backup
-          fi
+          echo "🔄 Starting deployment..."
+          cd ${{ env.DEPLOY_DIR }}
 
-          # Extract new content
-          cd /opt/solvia-site
-          tar xzf /tmp/landing.tar.gz
-          rm /tmp/landing.tar.gz
+          # Git pull latest changes
+          echo "📥 Pulling latest code from GitHub..."
+          git fetch origin
+          git reset --hard origin/main
+          git pull origin main
+
+          echo "✅ Code updated successfully"
 
           # Set permissions
-          chown -R www-data:www-data /opt/solvia-site 2>/dev/null || true
+          echo "🔧 Setting permissions..."
+          chown -R www-data:www-data ${{ env.DEPLOY_DIR }} 2>/dev/null || true
 
           echo "✅ Landing page deployed successfully!"
         ENDSSH
