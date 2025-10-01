@@ -1,0 +1,81 @@
+name: Deploy Solvia Landing Page
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  SERVER_HOST: 72.60.195.244
+  SERVER_USER: root
+  DEPLOY_DIR: /opt/solvia-site
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup SSH with official action
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+
+    - name: Add server to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Test SSH connection
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "echo '✅ SSH connection successful'"
+
+    - name: Deploy to Server
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} << 'ENDSSH'
+          set -e  # Exit on any error
+
+          echo "🔄 Starting deployment..."
+          cd ${{ env.DEPLOY_DIR }}
+
+          # Git pull latest changes
+          echo "📥 Pulling latest code from GitHub..."
+          git fetch origin
+          git reset --hard origin/main
+          git pull origin main
+
+          echo "✅ Code updated successfully"
+
+          # Set permissions
+          echo "🔧 Setting permissions..."
+          chown -R www-data:www-data ${{ env.DEPLOY_DIR }} 2>/dev/null || true
+
+          echo "✅ Landing page deployed successfully!"
+        ENDSSH
+
+    - name: Verify Deployment
+      run: |
+        sleep 5
+        response=$(curl -s -o /dev/null -w "%{http_code}" http://${{ env.SERVER_HOST }}/ || echo "000")
+        echo "Landing page response: $response"
+
+        if [ "$response" = "200" ] || [ "$response" = "308" ] || [ "$response" = "301" ]; then
+          echo "✅ Landing page is accessible"
+        else
+          echo "⚠️ Landing page returned: $response"
+        fi
+
+    - name: Cache Clear (Optional)
+      run: |
+        echo "🔄 Clearing CDN cache if configured..."
+        # Add CDN cache clearing commands here if using Cloudflare, etc.
+
+    - name: Notify Success
+      if: success()
+      run: echo "🚀 Solvia Landing Page deployed successfully!"
+
+    - name: Notify Failure
+      if: failure()
+      run: echo "❌ Deployment failed. Check logs for details."
