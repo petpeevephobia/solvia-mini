@@ -1440,11 +1440,18 @@ section {
     padding: 100px 0;
 }
 
+.cta-section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cta-card {
     background: linear-gradient(135deg, #EC6019 0%, #FF5053 100%);
     border-radius: 16px;
     padding: 3rem;
     max-width: 800px;
+    width: 100%;
     text-align: left;
 }
 
