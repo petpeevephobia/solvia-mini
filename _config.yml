@@ -1,0 +1,40 @@
+# Jekyll Configuration for Solvia Labs Case Studies
+# This minimal config enables Jekyll to work alongside existing static HTML files
+
+# Site settings
+title: "Solvia Labs"
+description: "Web Development for Startups | Fast, Collaborative, Founder-friendly"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  case-studies:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "case-studies"
+    values:
+      layout: "case-study"
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .git
+  - .gitignore

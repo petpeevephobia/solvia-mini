@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGBZSX1L7Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NGBZSX1L7Z');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ page.client }} | Solvia Labs Case Study</title>
+    <meta name="description" content="{{ page.description }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">
+                    <img src="/assets/images/nav-logo.svg" alt="Solvia Labs" class="logo-svg">
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/#labs" class="nav-link">Labs</a>
+                <a href="/product.html" class="nav-link">Product</a>
+                <a href="https://calendar.notion.so/meet/nadraqq/8bhg4oxs" target="_blank" class="nav-cta">Book a call</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero Section -->
+    <section class="case-study-hero">
+        <div class="container">
+            <div class="case-study-hero-content">
+                <!-- Project Tags -->
+                <div class="project-tags">
+                    {% for tag in page.tags %}
+                        <span class="project-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                
+                <!-- Project Title -->
+                <h1 class="case-study-title">{{ page.title }}</h1>
+                
+                <!-- Client -->
+                <p class="case-study-client">{{ page.client }}</p>
+                
+                <!-- Description -->
+                <p class="case-study-description">{{ page.description }}</p>
+            </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="case-study-hero-image">
+            <img src="{{ page.hero_image }}" alt="{{ page.title }} - Hero Image" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Project Details Bar -->
+    <section class="project-details-bar">
+        <div class="container">
+            <div class="project-details-grid">
+                <div class="project-detail">
+                    <h3>Client</h3>
+                    <p>{{ page.client }}</p>
+                </div>
+                <div class="project-detail">
+                    <h3>My Role</h3>
+                    <p>{{ page.role }}</p>
+                </div>
+                <div class="project-detail">
+                    <h3>Timeline</h3>
+                    <p>{{ page.timeline }}</p>
+                </div>
+                <div class="project-detail">
+                    <h3>Year</h3>
+                    <p>{{ page.year }}</p>
+                </div>
+                <div class="project-detail">
+                    <h3>Platform</h3>
+                    <p>{{ page.platform }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-study-section overview-section">
+        <div class="container">
+            <h2>Overview</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>{{ page.overview.background }}</p>
+                </div>
+                <div class="overview-goals">
+                    <h3>Project Goals</h3>
+                    <ul>
+                        {% for goal in page.overview.goals %}
+                            <li>{{ goal }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="overview-users">
+                    <h3>Target Users</h3>
+                    <p>{{ page.overview.target_users }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section class="case-study-section challenge-section">
+        <div class="container">
+            <h2>The Challenge</h2>
+            <div class="challenge-grid">
+                {% for problem in page.challenge.problems %}
+                    <div class="challenge-card">
+                        <h3>{{ problem.title }}</h3>
+                        <p>{{ problem.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="user-research-stat">
+                <div class="stat-content">
+                    <h3>{{ page.challenge.research_stat.title }}</h3>
+                    <p>{{ page.challenge.research_stat.description }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="case-study-section design-process-section">
+        <div class="container">
+            <h2>Design Process</h2>
+            <div class="design-process-content">
+                <div class="user-research-details">
+                    <p>{{ page.design_process.user_research }}</p>
+                </div>
+                <div class="process-image">
+                    <img src="{{ page.design_process.process_image }}" alt="{{ page.design_process.process_caption }}" class="process-img">
+                    <p class="process-caption">{{ page.design_process.process_caption }}</p>
+                </div>
+                <div class="design-decisions">
+                    <h3>Key Design Decisions</h3>
+                    <div class="decisions-grid">
+                        {% for decision in page.design_process.decisions %}
+                            <div class="decision-card">
+                                <div class="decision-icon">
+                                    <img src="{{ decision.icon }}" alt="{{ decision.title }}" class="decision-icon-img">
+                                </div>
+                                <h4>{{ decision.title }}</h4>
+                                <p>{{ decision.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section class="case-study-section solution-section">
+        <div class="container">
+            <h2>The Solution</h2>
+            <div class="solution-content">
+                <div class="core-principles">
+                    <h3>Core Principles</h3>
+                    <ol class="principles-list">
+                        {% for principle in page.solution.principles %}
+                            <li>{{ principle }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                <div class="design-showcase">
+                    {% for image in page.solution.showcase_images %}
+                        <div class="showcase-image">
+                            <img src="{{ image.url }}" alt="{{ image.caption }}" class="showcase-img">
+                            <p class="showcase-caption">{{ image.caption }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="key-features">
+                    <h3>Key Features</h3>
+                    <div class="features-grid">
+                        {% for feature in page.solution.features %}
+                            <div class="feature-card">
+                                <h4>{{ feature.title }}</h4>
+                                <p>{{ feature.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Results Section -->
+    <section class="case-study-section results-section">
+        <div class="container">
+            <h2>Impact & Results</h2>
+            <div class="results-content">
+                <div class="success-metrics">
+                    <div class="metrics-grid">
+                        {% for metric in page.results.metrics %}
+                            <div class="metric-card">
+                                <!-- <div class="metric-icon">
+                                    <img src="{{ metric.icon }}" alt="{{ metric.title }}" class="metric-icon-img">
+                                </div> -->
+                                <h3>{{ metric.value }}</h3>
+                                <h4>{{ metric.title }}</h4>
+                                <p>{{ metric.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="qualitative-feedback">
+                    <blockquote class="feedback-quote">
+                        "{{ page.results.feedback.quote }}"
+                    </blockquote>
+                    <div class="feedback-attribution">
+                        <p class="attribution-name">{{ page.results.feedback.author }}</p>
+                        <p class="attribution-title">{{ page.results.feedback.title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Takeaways Section -->
+    <section class="case-study-section takeaways-section">
+        <div class="container">
+            <h2>Key Takeaways</h2>
+            <div class="takeaways-grid">
+                {% for takeaway in page.takeaways %}
+                    <div class="takeaway-card">
+                        <h3>{{ takeaway.title }}</h3>
+                        <p>{{ takeaway.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Navigation -->
+    <section class="case-study-navigation">
+        <div class="container">
+            <div class="case-study-nav-content">
+                <a href="/#our-work" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">© 2025 Solvia Labs Pte. Ltd. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/solvia_ai" target="_blank" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/solviasg" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                            <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:nadra@solvia.app" class="social-icon" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

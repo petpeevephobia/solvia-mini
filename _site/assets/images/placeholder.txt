@@ -1,0 +1,8 @@
+# Images Folder
+
+Place your images here:
+- hero-image.jpg (or .webp)
+- logo.png
+- service-icons/
+- team-photos/
+- etc.
