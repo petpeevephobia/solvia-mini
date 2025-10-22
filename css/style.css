@@ -169,6 +169,8 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-logo a {
@@ -186,7 +188,7 @@ p {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-link {
@@ -1669,7 +1671,18 @@ section {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .nav-cta {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1690,6 +1703,9 @@ section {
     .nav-toggle {
         display: flex;
     }
+}
+
+@media (max-width: 768px) {
 
     .nav-toggle.active .bar:nth-child(2) {
         opacity: 0;
