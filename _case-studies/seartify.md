@@ -45,7 +45,7 @@ challenge:
 # Design Process Section
 design_process:
   user_research: "We analyzed the current Seartify website and conducted research on successful maritime community platforms. We created user personas for seafarers, course providers, and recruiters to understand their specific needs and decision-making triggers for platform registration."
-  process_image: "/assets/images/how-it-works-2.jpg"
+  process_image: "/assets/case-study_seartify/process-figma.png"
   process_caption: "Our design process focused on conversion optimization and multi-audience targeting for the maritime community."
   decisions:
     - title: "Single-Page Conversion Design"

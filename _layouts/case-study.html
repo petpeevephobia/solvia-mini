@@ -158,10 +158,12 @@
                 <div class="user-research-details">
                     <p>{{ page.design_process.user_research }}</p>
                 </div>
+                {% if page.design_process.process_image and page.design_process.process_image != "" %}
                 <div class="process-image">
                     <img src="{{ page.design_process.process_image }}" alt="{{ page.design_process.process_caption }}" class="process-img">
                     <p class="process-caption">{{ page.design_process.process_caption }}</p>
                 </div>
+                {% endif %}
                 <div class="design-decisions">
                     <h3>Key Design Decisions</h3>
                     <div class="decisions-grid">
@@ -235,6 +237,7 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% unless page.results.feedback.hide_feedback %}
                 <div class="qualitative-feedback">
                     <blockquote class="feedback-quote">
                         "{{ page.results.feedback.quote }}"
@@ -244,6 +247,7 @@
                         <p class="attribution-title">{{ page.results.feedback.title }}</p>
                     </div>
                 </div>
+                {% endunless %}
             </div>
         </div>
     </section>

@@ -219,6 +219,24 @@ p {
     transform: translateY(-1px);
 }
 
+.nav-cta-secondary {
+    background: transparent;
+    color: #EC6019;
+    padding: 18px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    border: 2px solid #EC6019;
+    transition: all 0.2s ease;
+}
+
+.nav-cta-secondary:hover {
+    background: #EC6019;
+    color: white;
+    transform: translateY(-1px);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -298,6 +316,7 @@ p {
     margin-bottom: 2rem;
     color: #4B5563;
     max-width: 500px;
+    font-size: 16px;
 }
 
 /* Hero Benefits */
@@ -1677,6 +1696,11 @@ section {
         font-size: 0.9rem;
     }
     
+    .nav-cta-secondary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+    
     .nav-link {
         font-size: 0.9rem;
     }
@@ -2967,7 +2991,7 @@ section {
     }
     
     .about-hero-content .hero-description {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .about-story,

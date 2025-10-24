@@ -44,8 +44,6 @@ challenge:
 # Design Process Section
 design_process:
   user_research: "To get the voice right, I dove headfirst into everything Verdé. From official guidelines to social media posts, I soaked up their energy and message. This became my compass, guiding every headline, farmer profile, and page as I crafted content that breathed Verdé's life."
-  process_image: ""
-  process_caption: "Brand immersion process diving deep into Verdé's guidelines, social media, and messaging to capture their authentic voice."
   decisions:
     - title: "Brand Immersion Approach"
       description: "Immersed myself completely in Verdé's brand guidelines, social media posts, and messaging to understand their authentic voice and energy."
@@ -97,6 +95,7 @@ results:
     quote: ""
     author: ""
     title: ""
+    hide_feedback: true
 
 # Key Takeaways Section
 takeaways:

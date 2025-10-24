@@ -45,7 +45,7 @@ challenge:
 # Design Process Section
 design_process:
   user_research: "We analyzed the current Wix website and conducted research on successful B2B engineering websites. We focused on understanding how industrial clients evaluate potential partners and what information they need to build trust and make contact decisions."
-  process_image: "/assets/images/how-it-works-3.jpg"
+  process_image: "/assets/case-study_act/research.png"
   process_caption: "Our design process focused on trust-building, technical credibility, and lead generation for industrial clients."
   decisions:
     - title: "Professional B2B Design"
@@ -70,7 +70,7 @@ solution:
   showcase_images:
     - url: "/assets/images/project-3.jpg"
       caption: "Professional homepage design showcasing engineering capabilities and building trust with industrial clients"
-    - url: "/assets/images/project-3-detail.jpg"
+    - url: "/assets/case-study_act/industries.png"
       caption: "About page highlighting team expertise and industry sectors served"
   features:
     - title: "Professional B2B Design"
@@ -98,6 +98,7 @@ results:
     quote: "The new website perfectly represents our engineering expertise and has been instrumental in generating quality leads from industrial clients. It's exactly what we needed to establish credibility in the market."
     author: "Project Manager"
     title: "ACT Technology"
+    hide_feedback: true
 
 # Key Takeaways Section
 takeaways:
