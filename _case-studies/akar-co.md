@@ -12,7 +12,6 @@ tags:
   - "Talent Management"
 
 # Project Details
-role: "Project Manager"
 timeline: "6 weeks"
 year: "2024"
 platform: "Framer"

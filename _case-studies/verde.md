@@ -12,7 +12,6 @@ tags:
   - "Brand Strategy"
 
 # Project Details
-role: "Project Manager"
 timeline: "1 week"
 year: "2024"
 platform: "Webflow"

@@ -13,7 +13,6 @@ tags:
   - "Industrial"
 
 # Project Details
-role: "Project Manager"
 timeline: "3 weeks"
 year: "2025"
 platform: "WordPress"

@@ -13,7 +13,6 @@ tags:
   - "Lead Generation"
 
 # Project Details
-role: "Project Manager"
 timeline: "2 weeks"
 year: "2025"
 platform: "Framer"
