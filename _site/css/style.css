@@ -2007,6 +2007,12 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    grid-auto-columns: 0;
+    overflow: hidden;
+}
+
+.project-details-grid > *:nth-child(n+5) {
+    display: none;
 }
 
 .project-detail h3 {
