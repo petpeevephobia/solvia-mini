@@ -1,0 +1,42 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign base_url = site.url | default: 'https://solvialabs.com' %}
+  
+  <!-- Homepage -->
+  <url>
+    <loc>{{ base_url }}/</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>{{ base_url }}/about.html</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Product Page -->
+  <url>
+    <loc>{{ base_url }}/product.html</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Case Studies -->
+  {% for case_study in site.case-studies %}
+  <url>
+    <loc>{{ base_url }}{{ case_study.url }}</loc>
+    <lastmod>{{ case_study.date | date: '%Y-%m-%d' | default: site.time | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
+</urlset>
+
