@@ -171,6 +171,7 @@ p {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .nav-logo a {
@@ -185,10 +186,30 @@ p {
     width: auto;
 }
 
+.nav-logo {
+    z-index: 10;
+}
+
 .nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.nav-links-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
 }
 
 .nav-link {
@@ -203,6 +224,11 @@ p {
     color: #EC6019;
 }
 
+.nav-link.active {
+    color: #EC6019;
+    font-weight: 500;
+}
+
 .nav-cta {
     background: #EC6019;
     color: white;
@@ -212,6 +238,8 @@ p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     transition: all 0.2s ease;
+    box-sizing: border-box;
+    border: 2px solid transparent;
 }
 
 .nav-cta:hover {
@@ -229,12 +257,87 @@ p {
     font-weight: 400;
     border: 2px solid #EC6019;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
 .nav-cta-secondary:hover {
     background: #EC6019;
     color: white;
     transform: translateY(-1px);
+}
+
+/* Navigation Dropdown */
+.nav-dropdown {
+    position: relative;
+    z-index: 1001;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 200px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1002;
+    pointer-events: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    pointer-events: auto;
+}
+
+/* Bridge the gap between button and dropdown */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: transparent;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.nav-dropdown-item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #4B5563;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.nav-dropdown-item:hover {
+    background: #F9FAFB;
+    color: #EC6019;
 }
 
 .nav-toggle {
@@ -310,13 +413,14 @@ p {
 
 .hero-title {
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .hero-description {
-    margin-bottom: 2rem;
     color: #4B5563;
     max-width: 500px;
     font-size: 16px;
+    text-align: left;
 }
 
 /* Hero Benefits */
@@ -575,7 +679,8 @@ section {
 
 .work-header p {
     margin-bottom: 0;
-    max-width: 600px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .work-content {
@@ -862,6 +967,13 @@ section {
     line-height: 1.6;
 }
 
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .btn-cta-banner {
     background: #ffffff;
     color: #000;
@@ -881,6 +993,28 @@ section {
     background: #f8f9fa;
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.btn-cta-banner-secondary {
+    background: transparent;
+    color: #ffffff;
+    padding: 18px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: inline-block;
+    transition: all 0.2s ease;
+    border: 2px solid #ffffff;
+    text-align: center;
+}
+
+.btn-cta-banner-secondary:hover {
+    background: #ffffff;
+    color: #000;
+    transform: translateY(-1px);
     text-decoration: none;
 }
 
@@ -910,7 +1044,6 @@ section {
 .product-hero-description {
     font-size: 16px;
     color: #4B5563;
-    margin: 1.5rem 0 2rem;
     line-height: 1.7;
 }
 
@@ -1565,7 +1698,8 @@ section {
 
 .footer-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem;
 }
@@ -1573,8 +1707,20 @@ section {
 .footer-copyright {
     color: #9CA3AF;
     font-size: 16px;
-    margin: 0;
-    text-align: center;
+    margin: 0 0 0.5rem 0;
+    text-align: left;
+}
+
+.footer-cookie-link {
+    color: #9CA3AF;
+    font-size: 14px;
+    text-decoration: underline;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-cookie-link:hover {
+    color: #EC6019;
 }
 
 .footer-social {
@@ -1680,7 +1826,7 @@ section {
     
     .product-hero-buttons .btn {
         width: 100%;
-        max-width: none;
+        max-width: 100%;
     }
     
     .signin-button-container {
@@ -1707,25 +1853,128 @@ section {
 }
 
 @media (max-width: 992px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
+        transform: none;
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+        padding: 2rem 0 0;
+        gap: 0;
     }
 
     .nav-menu.active {
         left: 0;
     }
+    
+    .nav-links-group {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    
+    .nav-buttons {
+        position: fixed;
+        left: -100%;
+        top: calc(70px + 25rem);
+        transform: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        text-align: center;
+        padding: 0 0 2rem;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        gap: 0.75rem;
+        border-top: 1px solid #E5E7EB;
+        padding-top: 1.5rem;
+    }
+    
+    .nav-menu.active ~ .nav-buttons {
+        left: 0;
+    }
+    
+    .nav-link {
+        padding: 24px 0;
+        width: 100%;
+        display: block;
+    }
+    
+    .nav-buttons .nav-cta,
+    .nav-buttons .nav-cta-secondary {
+        width: calc(100% - 4rem);
+        max-width: 400px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-cta,
+    .btn-cta-banner,
+    .btn-cta-banner-secondary {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
 
     .nav-toggle {
         display: flex;
+    }
+    
+    /* Mobile dropdown styles */
+    .nav-dropdown {
+        width: 100%;
+    }
+    
+    .nav-dropdown-toggle {
+        justify-content: center;
+        width: 100%;
+        padding: 0.75rem 0;
+        display: block;
+    }
+    
+    .nav-dropdown-toggle .dropdown-arrow {
+        display: none;
+    }
+    
+    .nav-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        margin-top: 0;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 300px;
+        overflow: visible;
+    }
+    
+    .nav-dropdown-item {
+        padding: 0.75rem 2rem;
+        border-left: 3px solid transparent;
+        font-size: 0.9rem;
+        color: #6B7280;
+        background-color: #F9FAFB;
+    }
+    
+    .nav-dropdown-item:hover {
+        border-left-color: #EC6019;
     }
 }
 
@@ -1780,7 +2029,16 @@ section {
     }
 
     .footer-content {
+        flex-direction: column;
         gap: 1.5rem;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+
+    .footer-cookie-link {
+        text-align: center;
     }
 
     .testimonial-content {
@@ -1841,7 +2099,13 @@ section {
         font-size: 32px;
     }
 
-    .btn-cta-banner {
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-cta-banner,
+    .btn-cta-banner-secondary {
         width: 100%;
     }
 
@@ -1860,12 +2124,12 @@ section {
 
     .product-hero-buttons .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
     }
 
     .signin-button-container {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
     }
 
     /* How It Works Mobile Styles */
@@ -2603,11 +2867,14 @@ section {
     margin: 0 auto;
     text-align: center;
     padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .about-hero-content .display {
     font-size: 48px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .about-hero-content .hero-description {
@@ -2616,6 +2883,7 @@ section {
     line-height: 1.7;
     width: 100%;
     max-width: 100%;
+    text-align: center;
 }
 
 /* About Story Section */
@@ -2772,6 +3040,66 @@ section {
     font-size: 16px;
     color: #4B5563;
     margin: 0;
+}
+
+/* Who We Help Section */
+.who-we-help {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.help-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.help-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.help-text h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.readiness-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.readiness-list li {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #374151;
+    margin-bottom: 1.25rem;
+    padding-left: 0;
+}
+
+.readiness-list li::first-letter {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.readiness-list li:last-child {
+    margin-bottom: 0;
+}
+
+.help-cta {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 2rem;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Timeline Section */
@@ -3002,6 +3330,7 @@ section {
     
     .about-story,
     .about-services,
+    .who-we-help,
     .about-timeline,
     .about-team {
         padding: 60px 0;
@@ -3012,6 +3341,19 @@ section {
     .about-timeline h1,
     .about-team h1 {
         font-size: 28px;
+    }
+    
+    .help-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .help-text h2 {
+        font-size: 24px;
+    }
+    
+    .readiness-list li {
+        font-size: 16px;
     }
     
     .service-item {

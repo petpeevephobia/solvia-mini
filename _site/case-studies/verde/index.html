@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGBZSX1L7Z"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-NGBZSX1L7Z');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supporting Verdé's Movement - Verdé | Solvia Labs Case Study</title>
     <meta name="description" content="Creating a website that showcases Verdé's vision (connecting Singapore's local farms to hungry businesses) all within a tight 1-week deadline to secure investor funding.">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/case-studies/verde/">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/style.css?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=10">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +31,27 @@
                 </a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="/#labs" class="nav-link">Labs</a>
-                <a href="/product.html" class="nav-link">Product</a>
-                <a href="https://calendar.notion.so/meet/nadraqq/8bhg4oxs" target="_blank" class="nav-cta">Book a call</a>
+                <div class="nav-links-group">
+                    <a href="/" class="nav-link">Product</a>
+                    <div class="nav-dropdown">
+                        <a href="/labs.html" class="nav-link nav-dropdown-toggle active">
+                            Labs
+                            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/case-studies/akar-co/" class="nav-dropdown-item">AKAR CO.</a>
+                            <a href="/case-studies/seartify/" class="nav-dropdown-item">Seartify</a>
+                            <a href="/case-studies/verde/" class="nav-dropdown-item">Verdé</a>
+                            <a href="/case-studies/act/" class="nav-dropdown-item">ACT Technology</a>
+                        </div>
+                    </div>
+                    <a href="/about.html" class="nav-link">About</a>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://calendar.notion.so/meet/nadraqq/8bhg4oxs" target="_blank" class="nav-cta">Start a project</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -366,7 +378,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-copyright">© 2025 Solvia Labs Pte. Ltd. All rights reserved.</p>
+                <div>
+                    <p class="footer-copyright">© 2025 Solvia Labs Pte. Ltd. All rights reserved.</p>
+                    <a href="/privacy-policy.html" class="footer-cookie-link">Cookie Policy</a>
+                </div>
                 <div class="footer-social">
                     <a href="https://instagram.com/solvia_ai" target="_blank" class="social-icon" aria-label="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,7 +408,27 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-consent-banner">
+        <div class="cookie-consent-content">
+            <svg class="cookie-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="8" cy="8" r="1.5" fill="#EC6019"/>
+                <circle cx="16" cy="8" r="1.5" fill="#EC6019"/>
+                <circle cx="12" cy="12" r="1.5" fill="#EC6019"/>
+                <circle cx="8" cy="16" r="1.5" fill="#EC6019"/>
+                <circle cx="16" cy="16" r="1.5" fill="#EC6019"/>
+            </svg>
+            <p>We use cookies to analyze site traffic and improve your experience. <a href="/privacy-policy.html">Learn more</a></p>
+            <div class="cookie-consent-buttons">
+                <button id="cookie-accept" class="btn-accept">Accept</button>
+                <button id="cookie-deny" class="btn-deny">Deny</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="/js/script.js"></script>
+    <script src="/js/cookie-consent.js"></script>
 </body>
 </html>

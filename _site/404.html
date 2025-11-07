@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGBZSX1L7Z"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-NGBZSX1L7Z');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - Solvia Labs</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
     <style>
         .error-page {
             min-height: 100vh;
@@ -46,5 +37,27 @@
             <a href="/" class="btn btn-primary">Go Home</a>
         </div>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-consent-banner">
+        <div class="cookie-consent-content">
+            <svg class="cookie-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="8" cy="8" r="1.5" fill="#EC6019"/>
+                <circle cx="16" cy="8" r="1.5" fill="#EC6019"/>
+                <circle cx="12" cy="12" r="1.5" fill="#EC6019"/>
+                <circle cx="8" cy="16" r="1.5" fill="#EC6019"/>
+                <circle cx="16" cy="16" r="1.5" fill="#EC6019"/>
+            </svg>
+            <p>We use cookies to analyze site traffic and improve your experience. <a href="/privacy-policy.html">Learn more</a></p>
+            <div class="cookie-consent-buttons">
+                <button id="cookie-accept" class="btn-accept">Accept</button>
+                <button id="cookie-deny" class="btn-deny">Deny</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/cookie-consent.js"></script>
 </body>
 </html>
