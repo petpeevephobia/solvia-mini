@@ -5,7 +5,7 @@
 title: "Solvia Labs"
 description: "Web Development for Startups | Fast, Collaborative, Founder-friendly"
 baseurl: ""
-url: ""
+url: "https://solvia.app"
 
 # Build settings
 markdown: kramdown
