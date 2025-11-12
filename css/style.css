@@ -1899,49 +1899,50 @@ section {
     
     .nav-menu {
         position: fixed;
-        left: -100%;
+        left: 0;
         top: 70px;
-        transform: none;
+        transform: translateX(-100%);
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: transform 0.3s ease;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0 0;
+        padding: 0;
         gap: 0;
+        min-height: 0;
     }
 
     .nav-menu.active {
-        left: 0;
-        padding-top: 0;
+        transform: translateX(0);
     }
     
     .nav-links-group {
         flex-direction: column;
         gap: 0;
         width: 100%;
+        margin-top: 0;
     }
     
     .nav-buttons {
         position: fixed;
-        left: -100%;
+        left: 0;
         top: calc(44px + 25rem);
-        transform: none;
+        transform: translateX(-100%);
         flex-direction: column;
         width: 100%;
         background-color: white;
         text-align: center;
         padding: 0 0 2rem;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
+        transition: transform 0.3s ease;
         gap: 0.75rem;
         border-top: 1px solid #E5E7EB;
         padding-top: 1.5rem;
     }
     
     .nav-menu.active ~ .nav-buttons {
-        left: 0;
+        transform: translateX(0);
     }
     
     .nav-link {
