@@ -1911,6 +1911,7 @@ section {
 
     .nav-menu.active {
         left: 0;
+        padding-top: 0;
     }
     
     .nav-links-group {
@@ -1922,7 +1923,7 @@ section {
     .nav-buttons {
         position: fixed;
         left: -100%;
-        top: calc(70px + 25rem);
+        top: calc(44px + 25rem);
         transform: none;
         flex-direction: column;
         width: 100%;
