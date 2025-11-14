@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>http://localhost:4000/</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- About Page -->
   <url>
     <loc>http://localhost:4000/about.html</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,7 +21,7 @@
   <!-- Product Page -->
   <url>
     <loc>http://localhost:4000/product.html</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -30,28 +30,28 @@
   
   <url>
     <loc>http://localhost:4000/case-studies/act/</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/case-studies/akar-co/</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/case-studies/seartify/</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/case-studies/verde/</loc>
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

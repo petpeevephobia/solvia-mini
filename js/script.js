@@ -55,43 +55,46 @@ window.addEventListener('scroll', function() {
 });
 
 // Contact form handling
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // Basic validation
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    
-    // Simulate form submission (replace with actual form handling)
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        this.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
-});
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Basic validation
+        if (!name || !email || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+        
+        // Simulate form submission (replace with actual form handling)
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -177,3 +180,40 @@ backToTopBtn.addEventListener('mouseenter', function() {
 backToTopBtn.addEventListener('mouseleave', function() {
     this.style.transform = 'scale(1)';
 });
+
+// FAQ Accordion Functionality
+function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    if (faqQuestions.length > 0) {
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const faqItem = this.closest('.faq-item');
+                if (!faqItem) return;
+                
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle the clicked item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+// Initialize FAQ accordion when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQAccordion);
+} else {
+    // DOM is already loaded
+    initFAQAccordion();
+}
