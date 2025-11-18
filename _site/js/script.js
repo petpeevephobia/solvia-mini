@@ -128,59 +128,6 @@ window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
 
-// Back to top button
-const backToTopBtn = document.createElement('button');
-backToTopBtn.innerHTML = '↑';
-backToTopBtn.className = 'back-to-top';
-backToTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-`;
-
-document.body.appendChild(backToTopBtn);
-
-// Show/hide back to top button
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.opacity = '1';
-        backToTopBtn.style.visibility = 'visible';
-    } else {
-        backToTopBtn.style.opacity = '0';
-        backToTopBtn.style.visibility = 'hidden';
-    }
-});
-
-// Back to top functionality
-backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Add hover effect to back to top button
-backToTopBtn.addEventListener('mouseenter', function() {
-    this.style.transform = 'scale(1.1)';
-});
-
-backToTopBtn.addEventListener('mouseleave', function() {
-    this.style.transform = 'scale(1)';
-});
-
 // FAQ Accordion Functionality
 function initFAQAccordion() {
     const faqQuestions = document.querySelectorAll('.faq-question');
