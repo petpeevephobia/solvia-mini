@@ -4,24 +4,24 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://solvia.app/</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- About Page -->
   <url>
-    <loc>https://solvia.app/about.html</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/about.html</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Product Page -->
   <url>
-    <loc>https://solvia.app/product.html</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/product.html</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,29 +29,29 @@
   <!-- Case Studies -->
   
   <url>
-    <loc>https://solvia.app/case-studies/act/</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/case-studies/act/</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://solvia.app/case-studies/akar-co/</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/case-studies/akar-co/</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://solvia.app/case-studies/seartify/</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/case-studies/seartify/</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://solvia.app/case-studies/verde/</loc>
-    <lastmod>2025-11-18</lastmod>
+    <loc>http://localhost:4000/case-studies/verde/</loc>
+    <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

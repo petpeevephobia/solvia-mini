@@ -3243,7 +3243,7 @@ section {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -3263,8 +3263,10 @@ section {
 
 .member-info {
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
 }
 
 .member-photo {
@@ -3273,10 +3275,12 @@ section {
     object-fit: cover;
     border-radius: 50%;
     flex-shrink: 0;
+    margin-bottom: 0.5rem;
 }
 
 .member-content {
     flex: 1;
+    width: 100%;
 }
 
 .member-info h2 {
