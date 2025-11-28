@@ -70,8 +70,8 @@
                     <span class="status-dot"></span>
                     <span class="status-text">Accepting projects</span>
                 </div>
-                <h1 class="hero-title display">Pay Once, Grow Forever</h1>
-<p class="hero-description">We build websites that actually scale your business, so you can focus on what you do best.</p>
+                <h1 class="hero-title display">The Only Website You'll Pay Once, And Own Forever</h1>
+<p class="hero-description">We build websites that actually scale your business, so you can focus on what you do best. Providing real impact for passionate founders is what we strive for.</p>
                 <ul class="hero-benefits">
                     <li class="benefit-item">
                         <span class="checkmark">✓</span>
@@ -130,7 +130,7 @@
                     <div class="cta-card">
                         <h2>Let's build something great</h2>
                         <p>Book a quick call and let's talk about what you're building. No pressure, just real talk about what'll actually move the needle.</p>
-                        <a href="https://calendar.notion.so/meet/nadraqq/8bhg4oxs" target="_blank" class="btn btn-cta">Start a project</a>
+                        <a href="#cta-section" class="btn btn-cta">Start a project</a>
                     </div>
                 </div>
                 
@@ -285,12 +285,34 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section id="cta-section" class="cta-section">
         <div class="container">
             <div class="cta-banner">
                 <h1>Stop hiding behind a mediocre website</h1>
                 <p>Your customers are searching for someone like you right now. Let's make sure they find you (at your best).</p>
-                <a href="https://calendar.notion.so/meet/nadraqq/8bhg4oxs" target="_blank" class="btn-cta-banner">Start a project today</a>
+                <!-- Cal inline embed code begins -->
+                <div class="cal-embed-container" id="my-cal-inline-strategy"></div>
+
+                <script type="text/javascript">
+
+                  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+                Cal("init", "strategy", {origin:"https://app.cal.com"});
+
+                  Cal.ns.strategy("inline", {
+
+                    elementOrSelector:"#my-cal-inline-strategy",
+
+                    config: {"layout":"week_view","theme":"light"},
+
+                    calLink: "nadra/strategy",
+
+                  });
+
+                  Cal.ns.strategy("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#EC6019"},"dark":{"cal-brand":"#EC6019"}},"hideEventTypeDetails":true,"layout":"week_view"});
+
+                  </script>
+                  <!-- Cal inline embed code ends -->
             </div>
         </div>
     </section>

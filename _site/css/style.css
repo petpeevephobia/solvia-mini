@@ -967,6 +967,26 @@ section {
     line-height: 1.6;
 }
 
+.cal-embed-container {
+    width: 100%;
+    min-height: 600px;
+    overflow: auto;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 1rem;
+    position: relative;
+}
+
+.cal-embed-container iframe,
+.cal-embed-container > div {
+    border-radius: 12px !important;
+}
+
+.cal-embed-container * {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
 .cta-buttons {
     display: flex;
     gap: 1rem;
