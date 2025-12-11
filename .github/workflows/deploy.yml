@@ -8,7 +8,8 @@ on:
 env:
   SERVER_HOST: 72.60.195.244
   SERVER_USER: root
-  DEPLOY_DIR: /opt/solvia-site
+  SOURCE_DIR: /opt/solvia-site
+  LANDING_DIR: /opt/solvia/landing
 
 jobs:
   deploy:
@@ -38,19 +39,27 @@ jobs:
           set -e  # Exit on any error
 
           echo "🔄 Starting deployment..."
-          cd ${{ env.DEPLOY_DIR }}
 
-          # Git pull latest changes
+          # Update source repository
+          cd ${{ env.SOURCE_DIR }}
           echo "📥 Pulling latest code from GitHub..."
           git fetch origin
           git reset --hard origin/main
           git pull origin main
+          echo "✅ Source code updated"
 
-          echo "✅ Code updated successfully"
+          # Ensure landing directory exists
+          mkdir -p ${{ env.LANDING_DIR }}
+
+          # Sync _site contents to landing directory (served by Caddy)
+          echo "📦 Syncing _site to landing directory..."
+          rsync -av --delete ${{ env.SOURCE_DIR }}/_site/ ${{ env.LANDING_DIR }}/
+          echo "✅ Landing files synced"
 
           # Set permissions
           echo "🔧 Setting permissions..."
-          chown -R www-data:www-data ${{ env.DEPLOY_DIR }} 2>/dev/null || true
+          chown -R root:root ${{ env.LANDING_DIR }} 2>/dev/null || true
+          chmod -R 755 ${{ env.LANDING_DIR }}
 
           echo "✅ Landing page deployed successfully!"
         ENDSSH
@@ -58,7 +67,7 @@ jobs:
     - name: Verify Deployment
       run: |
         sleep 5
-        response=$(curl -s -o /dev/null -w "%{http_code}" http://${{ env.SERVER_HOST }}/ || echo "000")
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://solvia.app/ || echo "000")
         echo "Landing page response: $response"
 
         if [ "$response" = "200" ] || [ "$response" = "308" ] || [ "$response" = "301" ]; then
@@ -66,11 +75,6 @@ jobs:
         else
           echo "⚠️ Landing page returned: $response"
         fi
-
-    - name: Cache Clear (Optional)
-      run: |
-        echo "🔄 Clearing CDN cache if configured..."
-        # Add CDN cache clearing commands here if using Cloudflare, etc.
 
     - name: Notify Success
       if: success()
