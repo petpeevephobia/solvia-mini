@@ -48,6 +48,12 @@ jobs:
           git pull origin main
           echo "✅ Source code updated"
 
+          # Build Jekyll site
+          echo "🔨 Building Jekyll site..."
+          bundle install --deployment --quiet
+          bundle exec jekyll build
+          echo "✅ Jekyll build completed"
+
           # Ensure landing directory exists
           mkdir -p ${{ env.LANDING_DIR }}
 
