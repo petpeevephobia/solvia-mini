@@ -12,6 +12,43 @@ A modern, responsive website for Solvia Labs startup with Jekyll-powered case st
 - **Smooth Scrolling**: Enhanced navigation experience
 - **Jekyll CMS**: Dynamic case study pages with markdown content management
 
+## Running Locally for Development
+
+### Quick Start (Easiest Method)
+
+The simplest way to run this website locally is using Python's built-in HTTP server:
+
+1. **Open Terminal/Command Prompt** in the project root directory
+2. **Run the server**:
+   ```bash
+   # Python 3 (most common)
+   python -m http.server 8000
+   
+   # Or if you have Python 2
+   python -m SimpleHTTPServer 8000
+   ```
+3. **Open your browser** and visit: `http://localhost:8000`
+
+The site will automatically reload when you make changes to HTML/CSS/JS files (just refresh your browser).
+
+#### Using Jekyll (Full Setup)
+If you need to work with case study pages that use Jekyll:
+
+1. **Install Jekyll** (see Jekyll Setup section below)
+2. **Run Jekyll server**:
+   ```bash
+   bundle exec jekyll serve
+   ```
+3. **View site**: Open `http://localhost:4000`
+
+> **Note**: For most development work (editing HTML, CSS, JavaScript), the simple Python server method is sufficient. Only use Jekyll if you're working on case study pages.
+
+### Troubleshooting
+
+- **Port already in use?** Change the port number (e.g., `8000` to `8001`)
+- **Can't find Python?** Make sure Python is installed and added to your PATH
+- **Files not updating?** Hard refresh your browser (Ctrl+F5 or Cmd+Shift+R)
+
 ## File Structure
 
 ```
