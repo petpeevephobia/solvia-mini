@@ -31,7 +31,7 @@ The simplest way to run this website locally is using Python's built-in HTTP ser
 
 The site will automatically reload when you make changes to HTML/CSS/JS files (just refresh your browser).
 
-#### Using Jekyll (Full Setup)
+#### Using Jekyll (Do this before pushing to Git)
 If you need to work with case study pages that use Jekyll:
 
 1. **Install Jekyll** (see Jekyll Setup section below)
