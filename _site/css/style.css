@@ -1,3 +1,36 @@
+/* Self-hosted Fonts */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/assets/fonts/Nunito-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/assets/fonts/Nunito-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -12,7 +45,7 @@ html {
 body {
     font-family: 'Nunito', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #6B7280;
     background-color: #fff;
 }
 
@@ -22,14 +55,14 @@ body {
     padding: 0 20px;
 }
 
-/* Typography */
+/* Typography - Style Guide */
 .display {
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #1F2937;
 }
 
 h1 {
@@ -38,25 +71,43 @@ h1 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #1F2937;
 }
 
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #1F2937;
 }
 
-h3, h4, h5, h6 {
+h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #1F2937;
+}
+
+h4 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #1F2937;
+}
+
+h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #1F2937;
 }
 
 p {
@@ -65,7 +116,25 @@ p {
     font-weight: 400;
     line-height: 1.6;
     margin-bottom: 1rem;
-    color: #4B5563;
+    color: #6B7280;
+}
+
+/* Paragraph 2: 11px, Nunito Regular, #6B7280 */
+.paragraph-2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #6B7280;
+}
+
+/* Note: 9px, Nunito Regular, #6B7280 */
+.note {
+    font-family: 'Nunito', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #6B7280;
 }
 
 
@@ -213,7 +282,7 @@ p {
 }
 
 .nav-link {
-    color: #4B5563;
+    color: #6B7280;
     text-decoration: none;
     font-weight: 400;
     font-size: 1rem;
@@ -329,7 +398,7 @@ p {
 .nav-dropdown-item {
     display: block;
     padding: 0.75rem 1.5rem;
-    color: #4B5563;
+    color: #6B7280;
     text-decoration: none;
     font-size: 0.9rem;
     transition: all 0.2s ease;
@@ -417,7 +486,7 @@ p {
 }
 
 .hero-description {
-    color: #4B5563;
+    color: #6B7280;
     max-width: 500px;
     font-size: 16px;
     text-align: left;
@@ -435,7 +504,7 @@ p {
     align-items: flex-start;
     gap: 12px;
     margin-bottom: 12px;
-    color: #4B5563;
+    color: #6B7280;
 }
 
 .checkmark {
@@ -530,7 +599,7 @@ section {
 .service-svg {
     width: 32px;
     height: 32px;
-    color: #000000;
+    color: #1F2937;
 }
 
 .service-card h3 {
@@ -570,7 +639,7 @@ section {
 
 .btn-cta {
     background: #ffffff;
-    color: black;
+    color: #1F2937;
     border: none;
     border-radius: 8px;
     padding: 18px 32px;
@@ -606,7 +675,7 @@ section {
     margin-bottom: 1rem;
     font-size: 40px;
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
 }
 
 .features-accent {
@@ -651,14 +720,14 @@ section {
 .feature-card h2 {
     margin-bottom: 1rem;
     font-size: 16px;
-    font-weight: 700;
-    color: #000000;
+    font-weight: 600;
+    color: #1F2937;
 }
 
 .feature-card p {
     margin-bottom: 0;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
 }
 
@@ -778,7 +847,7 @@ section {
 }
 
 .testimonial-quote {
-    color: #000000;
+    color: #1F2937;
     margin: 0 0 2rem 0;
     font-style: normal;
     quotes: none;
@@ -996,7 +1065,7 @@ section {
 
 .btn-cta-banner {
     background: #ffffff;
-    color: #000;
+    color: #1F2937;
     padding: 18px 32px;
     border-radius: 8px;
     text-decoration: none;
@@ -1033,7 +1102,7 @@ section {
 
 .btn-cta-banner-secondary:hover {
     background: #ffffff;
-    color: #000;
+    color: #1F2937;
     transform: translateY(-1px);
     text-decoration: none;
 }
@@ -1063,7 +1132,7 @@ section {
 
 .product-hero-description {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.7;
 }
 
@@ -1094,7 +1163,7 @@ section {
 
 .product-hero-usps li {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.7;
     margin-bottom: 0;
     display: flex;
@@ -1103,7 +1172,7 @@ section {
 }
 
 .product-hero-usps li .usp-icon {
-    color: #4B5563;
+    color: #6B7280;
     flex-shrink: 0;
 }
 
@@ -1123,7 +1192,7 @@ section {
 }
 
 .early-access-note {
-    font-size: 0.875rem;
+    font-size: 9px;
     color: #6B7280;
     margin: 0;
     text-align: center;
@@ -1169,13 +1238,13 @@ section {
 }
 
 .product-card h2 {
-    color: #000;
+    color: #1F2937;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 .product-card p {
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
 }
 
@@ -1215,7 +1284,7 @@ section {
 
 .problems-description {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -1241,7 +1310,7 @@ section {
 .problem-card-title {
     font-size: 24px;
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
     line-height: 1.3;
     font-family: 'Poppins', sans-serif;
@@ -1249,7 +1318,7 @@ section {
 
 .problem-card-description {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -1269,13 +1338,13 @@ section {
 /* How It Works Section */
 .how-it-works {
     padding: 100px 0 0 0 !important;
-    color: #000;
+    color: #1F2937;
 }
 
 .how-it-works-title {
     text-align: center;
     margin-bottom: 1rem;
-    color: #000;
+    color: #1F2937;
     font-size: 40px;
     font-weight: 700;
 }
@@ -1283,8 +1352,8 @@ section {
 .how-it-works-subtitle {
     text-align: center;
     margin-bottom: 4rem;
-    color: #000;
-    font-size: 18px;
+    color: #6B7280;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -1318,14 +1387,14 @@ section {
 }
 
 .text-item h3 {
-    color: #000;
+    color: #1F2937;
     margin: 0 0 0.5rem 0;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .text-item p {
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
     font-size: 16px;
@@ -1430,7 +1499,7 @@ section {
     .problem-card-title {
         font-size: 20px;
         font-weight: 700;
-        color: #000000;
+        color: #1F2937;
         margin-bottom: 1rem;
         line-height: 1.3;
         font-family: 'Poppins', sans-serif;
@@ -1606,7 +1675,7 @@ section {
 .real-results-title {
     text-align: center;
     margin-bottom: 1rem;
-    color: #000;
+    color: #1F2937;
     font-size: 40px;
     font-weight: 700;
 }
@@ -1614,8 +1683,8 @@ section {
 .real-results-subtitle {
     text-align: center;
     margin-bottom: 4rem;
-    color: #4B5563;
-    font-size: 18px;
+    color: #6B7280;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -1643,14 +1712,14 @@ section {
 }
 
 .result-title {
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
+    color: #1F2937;
+    font-size: 16px;
+    font-weight: 600;
     margin: 0 0 0.5rem 0;
 }
 
 .result-description {
-    color: #4B5563;
+    color: #6B7280;
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
@@ -1710,7 +1779,7 @@ section {
 
 .cta-button {
     background: white;
-    color: #000;
+    color: #1F2937;
     border: none;
     border-radius: 8px;
     padding: 18px 32px;
@@ -2284,7 +2353,7 @@ section {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #1F2937;
 }
 
 .case-study-client {
@@ -2297,8 +2366,8 @@ section {
 
 .case-study-description {
     font-family: 'Nunito', sans-serif;
-    font-size: 18px;
-    color: #4B5563;
+    font-size: 16px;
+    color: #6B7280;
     line-height: 1.6;
     max-width: 600px;
     margin-bottom: 0;
@@ -2345,7 +2414,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #6B7280;
+    color: #1F2937;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -2355,7 +2424,7 @@ section {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    color: #000000;
+    color: #1F2937;
     margin: 0;
 }
 
@@ -2368,7 +2437,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 32px;
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 3rem;
     text-align: left;
 }
@@ -2384,7 +2453,7 @@ section {
 .overview-text p {
     font-family: 'Nunito', sans-serif;
     font-size: 18px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.7;
     margin-bottom: 0;
 }
@@ -2394,7 +2463,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
 }
 
@@ -2407,7 +2476,7 @@ section {
 .overview-goals li {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;
@@ -2424,7 +2493,7 @@ section {
 .overview-users p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2452,14 +2521,14 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
 }
 
 .challenge-card p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2498,7 +2567,7 @@ section {
 .user-research-details p {
     font-family: 'Nunito', sans-serif;
     font-size: 18px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.7;
     margin: 0;
 }
@@ -2528,7 +2597,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 2rem;
 }
 
@@ -2560,14 +2629,14 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
 }
 
 .decision-card p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2587,7 +2656,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1.5rem;
 }
 
@@ -2600,7 +2669,7 @@ section {
 .principles-list li {
     font-family: 'Nunito', sans-serif;
     font-size: 18px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin-bottom: 1rem;
     padding-left: 3rem;
@@ -2656,7 +2725,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 2rem;
 }
 
@@ -2677,14 +2746,14 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
 }
 
 .feature-card p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2724,7 +2793,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 0.5rem;
     white-space: nowrap;
 }
@@ -2733,7 +2802,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
     white-space: nowrap;
 }
@@ -2741,7 +2810,7 @@ section {
 .metric-card p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2757,7 +2826,7 @@ section {
 .feedback-quote {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
-    color: #000000;
+    color: #1F2937;
     line-height: 1.6;
     margin: 0 0 2rem 0;
     quotes: none;
@@ -2778,7 +2847,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin: 0;
 }
 
@@ -2811,14 +2880,14 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 1rem;
 }
 
 .takeaway-card p {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.6;
     margin: 0;
 }
@@ -2941,7 +3010,7 @@ section {
 
 .about-hero-content .hero-description {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     line-height: 1.7;
     width: 100%;
     max-width: 100%;
@@ -2979,7 +3048,7 @@ section {
 
 .story-content strong {
     font-weight: 700;
-    color: #000000;
+    color: #1F2937;
 }
 
 .story-highlight {
@@ -3032,7 +3101,7 @@ section {
 
 .highlight-list strong {
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     font-size: 16px;
 }
 
@@ -3100,7 +3169,7 @@ section {
 
 .service-details p {
     font-size: 16px;
-    color: #4B5563;
+    color: #6B7280;
     margin: 0;
 }
 
@@ -3127,7 +3196,7 @@ section {
 .help-text h2 {
     font-size: 32px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 2rem;
     font-family: 'Poppins', sans-serif;
 }
@@ -3158,7 +3227,7 @@ section {
 .help-cta {
     font-size: 20px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     margin-top: 2rem;
     line-height: 1.6;
     font-family: 'Poppins', sans-serif;
@@ -3246,7 +3315,7 @@ section {
 
 .event-content strong {
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
 }
 
 /* Team Section */
@@ -3325,7 +3394,7 @@ section {
 .member-bio {
     font-size: 15px;
     line-height: 1.6;
-    color: #4B5563;
+    color: #6B7280;
     margin-bottom: 1rem;
 }
 
@@ -3343,7 +3412,7 @@ section {
 
 .member-responsibilities strong {
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
 }
 
 .linkedin-link {
@@ -3501,7 +3570,7 @@ section {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
-    color: #000000;
+    color: #1F2937;
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -3535,9 +3604,9 @@ section {
     justify-content: space-between;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    color: #000000;
+    color: #1F2937;
     transition: all 0.3s ease;
     pointer-events: auto;
     position: relative;
@@ -3580,7 +3649,7 @@ section {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     line-height: 1.7;
-    color: #4B5563;
+    color: #6B7280;
     margin: 0;
 }
 
