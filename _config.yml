@@ -26,6 +26,11 @@ defaults:
     values:
       layout: "case-study"
 
+# CSS Minifier
+minifier:
+  compress_css: true
+  compress_html: true
+
 # Exclude files from processing
 exclude:
   - README.md

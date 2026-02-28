@@ -81,7 +81,16 @@
         
         <!-- Hero Image -->
         <div class="case-study-hero-image">
+            {% assign hero_ext = page.hero_image | split: '.' | last | downcase %}
+            {% if page.hero_image contains '/assets/images/' and hero_ext == 'png' or hero_ext == 'jpg' or hero_ext == 'jpeg' %}
+            {% assign hero_webp = page.hero_image | replace: '.png', '.webp' | replace: '.PNG', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.JPG', '.webp' | replace: '.JPEG', '.webp' %}
+            <picture>
+                <source srcset="{{ hero_webp }}" type="image/webp">
+                <img src="{{ page.hero_image }}" alt="{{ page.title }} - Hero Image" class="hero-img">
+            </picture>
+            {% else %}
             <img src="{{ page.hero_image }}" alt="{{ page.title }} - Hero Image" class="hero-img">
+            {% endif %}
         </div>
     </section>
 
@@ -202,7 +211,16 @@
                 <div class="design-showcase">
                     {% for image in page.solution.showcase_images %}
                         <div class="showcase-image">
+                            {% assign img_ext = image.url | split: '.' | last | downcase %}
+                            {% if image.url contains '/assets/images/' and img_ext == 'png' or img_ext == 'jpg' or img_ext == 'jpeg' %}
+                            {% assign img_webp = image.url | replace: '.png', '.webp' | replace: '.PNG', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.JPG', '.webp' | replace: '.JPEG', '.webp' %}
+                            <picture>
+                                <source srcset="{{ img_webp }}" type="image/webp">
+                                <img src="{{ image.url }}" alt="{{ image.caption }}" class="showcase-img">
+                            </picture>
+                            {% else %}
                             <img src="{{ image.url }}" alt="{{ image.caption }}" class="showcase-img">
+                            {% endif %}
                             <p class="showcase-caption">{{ image.caption }}</p>
                         </div>
                     {% endfor %}
