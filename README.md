@@ -129,10 +129,10 @@ overview:
 4. **SSL Certificate**: Enable SSL certificate in Hostinger control panel
 5. **Test**: Visit your domain to ensure everything works
 
-## Customization
+## Customisation
 
-### Colors
-The main brand color is defined in CSS variables. Update the gradient colors in `css/style.css`:
+### Colours
+The main brand colour is defined in CSS variables. Update the gradient colours in `css/style.css`:
 - Primary: `#667eea` to `#764ba2`
 - You can change these throughout the file
 

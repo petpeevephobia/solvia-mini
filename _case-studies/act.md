@@ -43,7 +43,7 @@ challenge:
 
 # Design Process Section
 design_process:
-  user_research: "We analyzed the current Wix website and conducted research on successful B2B engineering websites. We focused on understanding how industrial clients evaluate potential partners and what information they need to build trust and make contact decisions."
+  user_research: "We analysed the current Wix website and conducted research on successful B2B engineering websites. We focused on understanding how industrial clients evaluate potential partners and what information they need to build trust and make contact decisions."
   process_image: "/assets/case-study_act/research.png"
   process_caption: "Our design process focused on trust-building, technical credibility, and lead generation for industrial clients."
   decisions:
@@ -106,7 +106,7 @@ takeaways:
   - title: "Technical Expertise Must Be Clear"
     description: "Industrial clients need to quickly understand technical capabilities and expertise to make contact decisions."
   - title: "Lead Generation Focus Drives Results"
-    description: "Designing with lead generation as the primary goal maximizes the website's business impact and ROI."
+    description: "Designing with lead generation as the primary goal maximises the website's business impact and ROI."
   - title: "Client-Manageable Platforms Enable Success"
     description: "Building on platforms like WordPress allows clients to maintain and update their websites without technical expertise."
 ---

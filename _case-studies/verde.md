@@ -51,7 +51,7 @@ design_process:
       description: "Used words as brushstrokes to paint a vivid picture of Verdé's vision, making it feel real and compelling for investors."
       icon: "/assets/images/service-2.svg"
     - title: "Visual Brand Harmony"
-      description: "Used Verdé's brand colors and visuals as tools, creating a beautiful and consistent picture across the entire website."
+      description: "Used Verdé's brand colours and visuals as tools, creating a beautiful and consistent picture across the entire website."
       icon: "/assets/images/service-3.svg"
     - title: "Investor-Focused Design"
       description: "Designed every element to showcase Verdé's potential to change the food scene and secure the funding they needed."
@@ -74,7 +74,7 @@ solution:
     - title: "Investor-Ready Prototype"
       description: "Built a functional website that served as a compelling prototype to demonstrate Verdé's potential to change the food scene."
     - title: "Visual Brand Consistency"
-      description: "Used Verdé's brand colors and visuals as tools, creating a beautiful and consistent picture across the entire website."
+      description: "Used Verdé's brand colours and visuals as tools, creating a beautiful and consistent picture across the entire website."
     - title: "Vision Communication"
       description: "Effectively communicated Verdé's complex marketplace vision in a simple, compelling way that resonated with investors."
 

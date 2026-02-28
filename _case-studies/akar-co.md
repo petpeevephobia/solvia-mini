@@ -2,7 +2,7 @@
 layout: case-study
 title: "A Creative Hub for AKAR CO."
 client: "AKAR CO."
-description: "Designing a website that reflects AKAR CO.'s unique brand identity, prioritizes visual storytelling, and empowers them to easily update content as their creative collective grows."
+description: "Designing a website that reflects AKAR CO.'s unique brand identity, prioritises visual storytelling, and empowers them to easily update content as their creative collective grows."
 hero_image: "/assets/images/project-2.png"
 live_url: "https://www.behance.net/gallery/197881359/A-Creative-Hub-for-AKAR-CO"
 tags:
@@ -21,7 +21,7 @@ overview:
   background: "AKAR CO. is a Singapore-based creative collective specializing in talent development (AKAR) and creative content production (AKAR Studios). AKAR, meaning 'roots' in Malay, focuses on nurturing emerging artists through personalized talent management and captivating storytelling marketing. They needed a website that would reflect their unique brand identity and showcase their diverse creative works."
   goals:
     - "Create a website that reflects AKAR CO.'s unique brand identity"
-    - "Prioritize visual storytelling to engage visitors"
+    - "Prioritise visual storytelling to engage visitors"
     - "Implement a user-friendly CMS for easy content management"
     - "Showcase their diverse creative works and talent roster"
     - "Attract a wider audience and increase website traffic"
@@ -33,7 +33,7 @@ challenge:
     - title: "Brand Identity Representation"
       description: "AKAR CO. needed a website that would authentically reflect their unique brand identity as a creative collective focused on nurturing emerging talent and storytelling."
     - title: "Visual Storytelling Requirements"
-      description: "The website needed to prioritize visual storytelling to engage visitors and showcase their creative works in an immersive way."
+      description: "The website needed to prioritise visual storytelling to engage visitors and showcase their creative works in an immersive way."
     - title: "Content Management Needs"
       description: "As their talent roster and business grows, they needed an easy way to update artist profiles, news, and events without technical assistance."
   research_stat:
@@ -50,7 +50,7 @@ design_process:
       description: "Incorporated interactive elements like hover effects and parallax scrolling, particularly on the 'About Us' page, to create an engaging brand narrative experience."
       icon: "/assets/images/service-1.svg"
     - title: "Visual Storytelling Focus"
-      description: "Prioritized visual storytelling throughout the site to showcase AKAR CO.'s creative works and talent roster in a compelling way."
+      description: "Prioritised visual storytelling throughout the site to showcase AKAR CO.'s creative works and talent roster in a compelling way."
       icon: "/assets/images/service-2.svg"
     - title: "User-Friendly CMS"
       description: "Implemented a content management system that empowers AKAR CO. to effortlessly manage artist profiles, news, and events as their roster expands."
@@ -74,11 +74,11 @@ solution:
     - title: "Interactive Design Elements"
       description: "Incorporated hover effects and parallax scrolling to create an immersive brand narrative experience that engages visitors."
     - title: "Visual Storytelling Platform"
-      description: "Designed the website to prioritize visual storytelling, showcasing AKAR CO.'s diverse creative works and talent roster effectively."
+      description: "Designed the website to prioritise visual storytelling, showcasing AKAR CO.'s diverse creative works and talent roster effectively."
     - title: "User-Friendly CMS"
       description: "Implemented a content management system that empowers AKAR CO. to effortlessly manage artist profiles, news, and events as their roster expands."
-    - title: "SEO Optimization"
-      description: "Applied basic SEO best practices to optimize search engine visibility and improve online discoverability for potential collaborators."
+    - title: "SEO Optimisation"
+      description: "Applied basic SEO best practices to optimise search engine visibility and improve online discoverability for potential collaborators."
 
 # Impact & Results Section
 results:
@@ -106,5 +106,5 @@ takeaways:
   - title: "CMS Empowers Business Growth"
     description: "A user-friendly content management system allows creative collectives to easily showcase expanding talent rosters and creative works."
   - title: "Process-Driven Approach Ensures Success"
-    description: "Following a structured process from discovery to launch, including wireframes, prototypes, and SEO optimization, leads to successful outcomes."
+    description: "Following a structured process from discovery to launch, including wireframes, prototypes, and SEO optimisation, leads to successful outcomes."
 ---
