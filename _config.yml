@@ -34,6 +34,8 @@ minifier:
 # Exclude files from processing
 exclude:
   - README.md
+  - backend
+  - docs
   - Gemfile
   - Gemfile.lock
   - node_modules

@@ -1,0 +1,5 @@
+# Backend (FastAPI) — secrets
+backend/.env
+backend/.venv/
+**/__pycache__/
+*.pyc

@@ -61,6 +61,16 @@ jobs:
           chown -R root:root ${{ env.LANDING_DIR }} 2>/dev/null || true
           chmod -R 755 ${{ env.LANDING_DIR }}
 
+          # Lead audit API (FastAPI): sync deps and restart if service is installed
+          if [ -f ${{ env.SOURCE_DIR }}/backend/requirements.txt ]; then
+            echo "🐍 Updating backend venv..."
+            cd ${{ env.SOURCE_DIR }}/backend
+            test -d .venv || python3 -m venv .venv
+            .venv/bin/pip install -q -r requirements.txt
+            systemctl try-restart solvia-audit-api 2>/dev/null || echo "⚠️ solvia-audit-api not installed or restart skipped"
+            echo "✅ Backend sync complete"
+          fi
+
           echo "✅ Landing page deployed successfully!"
         ENDSSH
 
@@ -74,6 +84,14 @@ jobs:
           echo "✅ Landing page is accessible"
         else
           echo "⚠️ Landing page returned: $response"
+        fi
+
+        api=$(curl -s -o /dev/null -w "%{http_code}" https://solvia.app/api/health || echo "000")
+        echo "API /api/health response: $api"
+        if [ "$api" = "200" ]; then
+          echo "✅ Lead audit API health OK"
+        else
+          echo "⚠️ Lead audit API not reachable or not configured (expected until Caddy + systemd are set up)"
         fi
 
     - name: Notify Success

@@ -147,6 +147,43 @@ The main brand colour is defined in CSS variables. Update the gradient colours i
 - Service icons
 - Favicon (32x32px)
 
+## Backend (SEO lead audits)
+
+FastAPI service under [`backend/`](backend/) persists lead-magnet jobs in Supabase table **`lead_audits`**.
+
+### One-time: database
+
+1. In Supabase **SQL Editor**, run [`backend/sql/001_lead_audits.sql`](backend/sql/001_lead_audits.sql).
+2. Keep **RLS** either off for this table or locked down for server-only access (see [`docs/supabase-connection.md`](docs/supabase-connection.md)).
+
+### Local run
+
+```bash
+cd backend
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+copy .env.example .env   # or cp; then edit DATABASE_URL and CORS_ORIGINS
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+- Health: `GET http://127.0.0.1:8000/api/health`
+- Create job: `POST http://127.0.0.1:8000/api/v1/audit` with JSON `{"url":"https://example.com","email":"you@example.com"}` (returns `202` + `audit_id`)
+- Status: `GET http://127.0.0.1:8000/api/v1/audit/{audit_id}/status`
+
+Use `postgresql+psycopg://...` in `DATABASE_URL` and include `?sslmode=require` for Supabase if needed.
+
+### Production (VPS)
+
+One-time **systemd** + **Caddy** reverse proxy for `/api/*`: [`docs/vps-deploy-backend.md`](docs/vps-deploy-backend.md). Put real secrets in `backend/.env` on the server only; never commit `.env`.
+
+GitHub Actions deploy (after the unit exists) runs `pip install` under `backend/` and `systemctl try-restart solvia-audit-api`. See [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+### Docs
+
+- [`docs/supabase-connection.md`](docs/supabase-connection.md) — connection string, verification, optional `npx skills add supabase/agent-skills`
+
 ## Browser Support
 
 - Chrome (latest)
