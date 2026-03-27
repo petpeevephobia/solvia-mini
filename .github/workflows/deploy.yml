@@ -15,9 +15,35 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    # Ephemeral Postgres on the GitHub runner — validates backend/sql/*.sql before deploy.
+    # Production DB remains Supabase (DATABASE_URL on the VPS), not this container.
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: solvia
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d solvia"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Apply lead_audits schema (CI smoke)
+      env:
+        PGPASSWORD: postgres
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y postgresql-client
+        until pg_isready -h localhost -p 5432 -U postgres; do sleep 1; done
+        psql -h localhost -U postgres -d solvia -v ON_ERROR_STOP=1 -f backend/sql/001_lead_audits.sql
 
     - name: Setup SSH with official action
       uses: webfactory/ssh-agent@v0.9.0

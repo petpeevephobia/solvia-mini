@@ -1,0 +1,23 @@
+# Local dev Postgres (same idea as web app @ localhost:5432).
+# Usage: docker compose -f docker-compose.postgres.yml up -d
+# Then DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/solvia?sslmode=disable
+#
+# Production API on the VPS should keep using Supabase in backend/.env unless you intentionally
+# switch DATABASE_URL to this host.
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: solvia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: solvia
+    ports:
+      - "5432:5432"
+    volumes:
+      - solvia_pgdata:/var/lib/postgresql/data
+
+volumes:
+  solvia_pgdata:

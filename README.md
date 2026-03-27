@@ -165,7 +165,7 @@ python -m venv .venv
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 copy .env.example .env   # or cp; then edit DATABASE_URL and CORS_ORIGINS
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000    # Only API (aka the website, not the local database)
 ```
 
 - Health: `GET http://127.0.0.1:8000/api/health`
@@ -173,6 +173,22 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 - Status: `GET http://127.0.0.1:8000/api/v1/audit/{audit_id}/status`
 
 Use `postgresql+psycopg://...` in `DATABASE_URL` and include `?sslmode=require` for Supabase if needed.
+
+From the **repository root**, you can use the [`Makefile`](Makefile) instead: `make backend-install` (first time), `make backend-dev` (same Uvicorn command as above), `make backend-test`, and—if you use [Docker Postgres](docker-compose.postgres.yml)—`make db-up`, `make db-migrate`, and `make db-down`. Run `make help` for all targets.
+
+### Running Postgres, the API, and the site at the same time
+
+You can develop with **local Postgres (Docker)**, the **FastAPI** service, and the **Jekyll** site running together. Each listens on its own port:
+
+| Service | Default port |
+|--------|----------------|
+| PostgreSQL (Docker, `make db-up`) | 5432 |
+| FastAPI (`make backend-dev`) | 8000 |
+| Jekyll (`make jekyll-serve` or `bundle exec jekyll serve`) | 4000 |
+
+**Avoid a port clash:** the [Quick Start](#quick-start-easiest-method) `python -m http.server 8000` uses the **same port** as the API. Do not run both; use Jekyll on **4000**, or use another port for the static server (e.g. `python -m http.server 8080`).
+
+**Typical setup:** `make db-up` (when using local Postgres), then **`make backend-dev`** in one terminal and **`make jekyll-serve`** in another. Point `backend/.env` `DATABASE_URL` at `localhost` when using Docker Postgres (see `.env.example`).
 
 ### Production (VPS)
 
