@@ -4,7 +4,7 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.db import get_db
-from app.jobs.audit_stub import run_audit_stub
+from app.jobs.run_audit import run_audit_pipeline
 from app.models import LeadAudit
 from app.schemas.audit import AuditAccepted, AuditCreate, AuditStatusResponse
 
@@ -29,7 +29,7 @@ def create_audit(
     db.add(audit)
     db.commit()
     db.refresh(audit)
-    background_tasks.add_task(run_audit_stub, audit.id)
+    background_tasks.add_task(run_audit_pipeline, audit.id)
     return AuditAccepted(audit_id=audit.id, status="queued")
 
 
