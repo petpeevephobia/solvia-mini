@@ -1,4 +1,4 @@
-"""Full audit pipeline: Firecrawl → Agent 1 → CSE → Agent 2 → Agent 3."""
+"""Full audit pipeline: Firecrawl → Agent 1 → Serper → Agent 2 → Agent 3."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from app.pipeline.agent1 import run_agent1
 from app.pipeline.agent2 import run_agent2
 from app.pipeline.agent3 import run_agent3
 from app.services.firecrawl import scrape_page
-from app.services.serp import search_google_cse
+from app.services.serp import search_serper
 
 logger = logging.getLogger(__name__)
 
@@ -23,10 +23,8 @@ def _require_pipeline_env() -> None:
         missing.append("FIRECRAWL_API_KEY")
     if not settings.google_api_key.strip():
         missing.append("GOOGLE_API_KEY")
-    if not settings.google_cse_api_key.strip():
-        missing.append("GOOGLE_CSE_API_KEY")
-    if not settings.google_cse_id.strip():
-        missing.append("GOOGLE_CSE_ID")
+    if not settings.serper_api_key.strip():
+        missing.append("SERPER_API_KEY")
     if missing:
         raise ValueError(f"Missing or empty environment variables: {', '.join(missing)}")
 
@@ -70,10 +68,9 @@ def run_audit_pipeline(audit_id: uuid.UUID) -> None:
         db.commit()
 
         keyword = (page.primary_keyword or "").strip() or (page.title or "page")[:120]
-        raw_serp = search_google_cse(
+        raw_serp = search_serper(
             keyword,
-            settings.google_cse_api_key,
-            settings.google_cse_id,
+            settings.serper_api_key,
             settings.serp_timeout_sec,
         )
         serp = run_agent2(raw_serp, keyword)

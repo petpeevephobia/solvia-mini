@@ -49,9 +49,12 @@ def test_extract_from_html_basic():
     assert out.external_links.count >= 1
 
 
+SERPER_EMPTY = {"organic": [], "peopleAlsoAsk": [], "relatedSearches": []}
+
+
 @patch("app.jobs.run_audit.run_agent3", return_value="# Audit\nDone")
 @patch("app.jobs.run_audit.run_agent2")
-@patch("app.jobs.run_audit.search_google_cse", return_value={"items": []})
+@patch("app.jobs.run_audit.search_serper", return_value=SERPER_EMPTY)
 @patch("app.jobs.run_audit.run_agent1")
 @patch("app.jobs.run_audit.scrape_page")
 @patch("app.jobs.run_audit._require_pipeline_env")
@@ -59,7 +62,7 @@ def test_run_audit_pipeline_happy_path(
     _req,
     mock_scrape,
     mock_a1,
-    _cse,
+    _serper,
     mock_a2,
     _a3,
     sample_page: PageAuditOutput,

@@ -9,8 +9,7 @@ class Settings(BaseSettings):
 
     google_api_key: str = ""
     gemini_model: str = "gemini-2.0-flash"
-    google_cse_api_key: str = ""
-    google_cse_id: str = ""
+    serper_api_key: str = ""
 
     firecrawl_api_key: str = ""
 

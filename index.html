@@ -58,53 +58,85 @@
         </div>
     </nav>
 
-    <!-- Product Hero Section -->
-    <section class="product-hero">
+    <!-- Lead Magnet Hero Section -->
+    <section id="seo-audit-section" class="audit-section">
         <div class="container">
-            <div class="product-hero-layout">
-                <div class="product-hero-content">
-                    <h1 class="display">Automate Your SEO Easily With AI</h1>
-                    <p class="product-hero-description">Solvia finds and fixes issues to get your website shown to customers.</p>
-                    <div class="product-hero-usps">
-                        <ul>
-                            <li>
-                                <svg class="usp-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span>No technical knowledge</span>
-                            </li>
-                            <li>
-                                <svg class="usp-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                                <span>No freelancers</span>
-                            </li>
-                            <li>
-                                <svg class="usp-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-                                    <path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                                <span>Get found easily</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product-hero-buttons">
-                        <a href="https://form.typeform.com/to/cmoJqLTj" target="_blank" class="btn btn-primary">Gain free early access</a>
-                        <div class="signin-button-container">
-                            <a href="https://solvia.app/login" target="_blank" class="btn btn-secondary">Sign in to Solvia</a>
-                            <p class="early-access-note">For approved early users only</p>
+            <div class="audit-hero">
+
+                <span class="audit-eyebrow-pill">Free &middot; 2 min</span>
+
+                <h1 class="audit-headline">
+                    See exactly what's<br>
+                    <span class="audit-headline-accent">holding your site back</span>
+                </h1>
+                <p class="audit-subhead">Enter your URL — we'll send a full SEO audit to your inbox.</p>
+
+                <!-- Firecrawl-style pill input card -->
+                <form id="audit-form" class="audit-form" novalidate aria-label="Free SEO audit">
+                    <div class="audit-input-card" id="audit-input-card">
+                        <!-- URL row -->
+                        <div class="audit-input-row">
+                            <svg class="audit-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.75"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.75"/>
+                            </svg>
+                            <label for="audit-url" class="sr-only">Website URL</label>
+                            <input id="audit-url" name="url" type="url"
+                                   class="audit-input" placeholder="https://yourwebsite.com"
+                                   autocomplete="url" required />
                         </div>
+                        <!-- divider -->
+                        <div class="audit-input-divider" aria-hidden="true"></div>
+                        <!-- Email row -->
+                        <div class="audit-input-row">
+                            <svg class="audit-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                                <path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="1.75"/>
+                            </svg>
+                            <label for="audit-email" class="sr-only">Email address</label>
+                            <input id="audit-email" name="email" type="email"
+                                   class="audit-input" placeholder="you@company.com"
+                                   autocomplete="email" required />
+                        </div>
+                        <!-- CTA arrow button -->
+                        <button type="submit" id="audit-submit" class="audit-submit-btn" aria-label="Get my free SEO audit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
+                    <!-- error messages below card -->
+                    <p class="audit-field-error" id="audit-url-error" role="alert" hidden></p>
+                    <p class="audit-field-error" id="audit-email-error" role="alert" hidden></p>
+                    <p class="audit-disclaimer">No spam. Unsubscribe anytime.</p>
+                </form>
+
+                <!-- Progress state (hidden until submitted) -->
+                <div id="audit-progress" class="audit-progress" hidden aria-live="polite">
+                    <div class="audit-steps">
+                        <span class="audit-step" data-step="scraping">Scraping your website</span>
+                        <span class="audit-step" data-step="analyzing">Analyzing SEO signals</span>
+                        <span class="audit-step" data-step="generating">Writing your report</span>
+                    </div>
+                    <p class="audit-progress-note">This takes 1–2 minutes. We'll email you when it's ready.</p>
                 </div>
+
+                <!-- Success state -->
+                <div id="audit-success" class="audit-success" hidden>
+                    <svg class="audit-success-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="1.75"/>
+                        <path d="m8 12 3 3 5-5" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p class="audit-success-heading">Your report is on its way!</p>
+                    <p class="audit-success-body">Check your inbox — your full SEO audit will arrive shortly.</p>
+                </div>
+
+                <!-- Failure state -->
+                <div id="audit-error-global" class="audit-error" hidden role="alert">
+                    <p>Something went wrong. Please <button type="button" class="audit-retry-btn" id="audit-retry">try again</button> or <a href="mailto:hello@solvialabs.com">contact us</a>.</p>
+                </div>
+
             </div>
-        </div>
-        <div class="product-hero-image">
-            <picture>
-                <source srcset="assets/images/product-hero.webp" type="image/webp">
-                <img src="assets/images/product-hero.jpg" alt="Solvia SEO Dashboard" class="product-demo-img">
-            </picture>
         </div>
     </section>
 
@@ -506,5 +538,6 @@
     <!-- JavaScript -->
     <script src="js/script.js"></script>
     <script src="js/cookie-consent.js"></script>
+    <script src="js/seo-audit.js"></script>
 </body>
 </html>
