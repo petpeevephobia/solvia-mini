@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 from typing import Literal
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
@@ -26,3 +27,7 @@ class AuditStatusResponse(BaseModel):
     audit_id: uuid.UUID
     status: str
     error_message: str | None = None
+    # Email delivery fields — present once delivery has been attempted
+    email_sent_at: datetime | None = None
+    email_failed_at: datetime | None = None
+    email_attempts: int = 0

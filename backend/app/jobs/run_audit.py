@@ -1,9 +1,10 @@
-"""Full audit pipeline: Firecrawl → Agent 1 → Serper → Agent 2 → Agent 3."""
+"""Full audit pipeline: Firecrawl → Agent 1 → Serper → Agent 2 → Agent 3 → Email."""
 
 from __future__ import annotations
 
 import logging
 import uuid
+from datetime import datetime, timezone
 
 from app.config import settings
 from app.db import SessionLocal
@@ -11,6 +12,7 @@ from app.models import LeadAudit
 from app.pipeline.agent1 import run_agent1
 from app.pipeline.agent2 import run_agent2
 from app.pipeline.agent3 import run_agent3
+from app.services.email_delivery import send_audit_email
 from app.services.firecrawl import scrape_page
 from app.services.serp import search_serper
 
@@ -38,6 +40,42 @@ def _fail(db, row: LeadAudit | None, msg: str) -> None:
         db.commit()
     except Exception:
         logger.exception("could not persist failure status")
+
+
+def _deliver_email(db, row: LeadAudit) -> None:
+    """Send the audit report email and persist delivery outcome.
+
+    Guards against duplicate sends: skips if email_sent_at is already set.
+    Retries are handled inside send_audit_email (one retry with delay).
+    """
+    if row.email_sent_at is not None:
+        logger.info(
+            "Audit email already sent for audit_id=%s — skipping duplicate",
+            row.id,
+        )
+        return
+
+    result = send_audit_email(
+        to_email=row.email,
+        audited_url=row.url,
+        report_markdown=row.report_markdown or "",
+    )
+
+    try:
+        now = datetime.now(tz=timezone.utc)
+        row.email_attempts = result.attempts
+        if result.success:
+            row.email_sent_at = now
+            row.email_failed_at = None
+            row.email_error_message = None
+        else:
+            row.email_failed_at = now
+            row.email_error_message = (result.error or "unknown error")[:2000]
+        db.commit()
+    except Exception:
+        logger.exception(
+            "Could not persist email delivery outcome for audit_id=%s", row.id
+        )
 
 
 def run_audit_pipeline(audit_id: uuid.UUID) -> None:
@@ -84,6 +122,10 @@ def run_audit_pipeline(audit_id: uuid.UUID) -> None:
         row.report_markdown = report
         row.status = "complete"
         db.commit()
+
+        # Deliver the report email — failure here does NOT fail the audit
+        _deliver_email(db, row)
+
     except Exception as e:
         logger.exception("audit pipeline failed for %s", audit_id)
         _fail(db, row, str(e))

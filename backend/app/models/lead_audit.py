@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, String, Text, func
+from sqlalchemy import DateTime, Integer, String, Text, func
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -36,3 +36,13 @@ class LeadAudit(Base):
     report_markdown: Mapped[str | None] = mapped_column(Text, nullable=True)
     page_audit_json: Mapped[dict | list | None] = mapped_column(JSONB, nullable=True)
     serp_analysis_json: Mapped[dict | list | None] = mapped_column(JSONB, nullable=True)
+
+    # Email delivery tracking — populated after Agent 3 completes
+    email_sent_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    email_failed_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    email_error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
+    email_attempts: Mapped[int] = mapped_column(Integer, nullable=False, default=0)

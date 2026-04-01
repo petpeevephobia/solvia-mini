@@ -45,4 +45,7 @@ def get_audit_status(
         audit_id=row.id,
         status=row.status,
         error_message=row.error_message,
+        email_sent_at=row.email_sent_at,
+        email_failed_at=row.email_failed_at,
+        email_attempts=row.email_attempts,
     )

@@ -18,9 +18,28 @@ class Settings(BaseSettings):
     serp_timeout_sec: float = 60.0
     llm_max_output_tokens: int = 8192
 
+    # Zoho SMTP — transactional email delivery
+    smtp_host: str = "smtp.zoho.com"
+    smtp_port: int = 587
+    smtp_username: str = ""
+    smtp_password: str = ""
+    smtp_from_email: str = ""
+    smtp_from_name: str = "Solvia Labs"
+    smtp_use_tls: bool = True
+    smtp_reply_to: str = ""
+
     @property
     def cors_origin_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
+
+    @property
+    def smtp_configured(self) -> bool:
+        return bool(
+            self.smtp_host.strip()
+            and self.smtp_username.strip()
+            and self.smtp_password.strip()
+            and self.smtp_from_email.strip()
+        )
 
 
 settings = Settings()
