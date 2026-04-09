@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Login — Solvia</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f5f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 380px;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 2rem;
+    }
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input[type="password"]:focus { border-color: #EC6019; box-shadow: 0 0 0 3px rgba(236,96,25,0.12); }
+    .error {
+      margin-top: 0.75rem;
+      padding: 0.6rem 0.8rem;
+      background: #fff0f0;
+      border: 1px solid #fcc;
+      border-radius: 6px;
+      color: #c0392b;
+      font-size: 0.83rem;
+    }
+    button {
+      margin-top: 1.25rem;
+      width: 100%;
+      padding: 0.7rem;
+      background: #EC6019;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: #d4521a; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Solvia</div>
+    <div class="subtitle">Internal admin — not for public access</div>
+    <form method="post" action="/admin/login">
+      <label for="secret">Admin secret</label>
+      <input type="password" id="secret" name="secret" placeholder="Enter secret" autofocus required>
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% endif %}
+      <button type="submit">Sign in</button>
+    </form>
+  </div>
+</body>
+</html>

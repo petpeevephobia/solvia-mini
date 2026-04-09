@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     serp_timeout_sec: float = 60.0
     llm_max_output_tokens: int = 8192
 
+    # Admin dashboard
+    admin_secret: str = ""
+
     # Zoho SMTP — transactional email delivery
     smtp_host: str = "smtp.zoho.com"
     smtp_port: int = 587
