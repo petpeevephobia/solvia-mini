@@ -1,4 +1,4 @@
-# Jekyll Configuration for Solvia Labs Case Studies
+# Jekyll Configuration for Solvia Labs
 # This minimal config enables Jekyll to work alongside existing static HTML files
 
 # Site settings
@@ -11,20 +11,6 @@ url: "https://solvia.app"
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
-
-# Collections
-collections:
-  case-studies:
-    output: true
-    permalink: /:collection/:name/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "case-studies"
-    values:
-      layout: "case-study"
 
 # CSS Minifier
 minifier:
