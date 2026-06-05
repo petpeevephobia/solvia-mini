@@ -1,6 +1,7 @@
-# Solvia MINI
+# Solvia Mini
 
 A free SEO audit tool that tells founders exactly what's holding their website back in plain English, delivered to their email inbox.
+[https://solvia-mini.fly.dev/](https://solvia-mini.fly.dev/)
 
 ## Why
 
