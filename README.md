@@ -64,9 +64,11 @@ SMTP_REPLY_TO
 ### Quick Start (Easiest Method)
 
 1. **Install Jekyll** (see Jekyll Setup section below)
-2. **Run Jekyll server**:
+2. **Run backend and Jekyll server**:
    ```bash
-   bundle exec jekyll serve
+   make backend-dev
+   make jekyll-build
+   make jekyll-serve
    ```
 3. **View site**: Open `http://localhost:4000`
 
