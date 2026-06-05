@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for solvia-mini on 2026-06-05T14:17:50Z
+# fly.toml app configuration file generated for solvia-mini on 2026-06-05T14:22:36Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -9,11 +9,11 @@ primary_region = 'ams'
 [build]
 
 [http_service]
-  internal_port = 8080
+  internal_port = 4000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]
