@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import markdown as md
 
-_WAITLIST_URL = "https://form.typeform.com/to/cmoJqLTj"
-_PRIVACY_URL = "https://solvia.app/privacy-policy.html"
-_CONTACT_EMAIL = "nadra@solvia.app"
+_CONTACT_EMAIL = "qamaria.mdsah@gmail.com"
 _BRAND_COLOR = "#EC6019"
 _DARK = "#0A0A0A"
 _LIGHT_BG = "#F7F7F7"
@@ -38,8 +36,8 @@ def _render_html(report_markdown: str, audited_url: str) -> str:
 
           <!-- Header -->
           <tr>
-            <td style="background-color:{_DARK};padding:28px 40px;text-align:center;">
-              <span style="font-size:20px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;">Solvia Labs</span>
+            <td style="padding:28px 40px;text-align:center;">
+              <h1>📦 Special Delivery from Solvia Mini</h1>
             </td>
           </tr>
 
@@ -59,27 +57,8 @@ def _render_html(report_markdown: str, audited_url: str) -> str:
           <tr>
             <td style="padding:36px 40px;">
               <div style="font-size:15px;line-height:1.7;color:{_DARK};">
-{body_html}
+                {body_html}
               </div>
-            </td>
-          </tr>
-
-          <!-- CTA -->
-          <tr>
-            <td style="padding:0 40px 40px;text-align:center;">
-              <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
-                <tr>
-                  <td style="background-color:{_BRAND_COLOR};border-radius:6px;padding:0;">
-                    <a href="{_WAITLIST_URL}"
-                       style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:6px;letter-spacing:-0.1px;">
-                      Get early access →
-                    </a>
-                  </td>
-                </tr>
-              </table>
-              <p style="margin:16px 0 0;font-size:13px;color:#666666;">
-                Join the waitlist to automate this — and every future audit — with Solvia.
-              </p>
             </td>
           </tr>
 
@@ -90,21 +69,20 @@ def _render_html(report_markdown: str, audited_url: str) -> str:
             </td>
           </tr>
 
+
           <!-- Footer -->
           <tr>
             <td style="padding:24px 40px;text-align:center;">
               <p style="margin:0;font-size:12px;color:#888888;line-height:1.6;">
                 You received this email because you requested a free website SEO audit from
-                <a href="https://solvia.app" style="color:#888888;">solvia.app</a>.
+                <a href="https://solvia-mini.fly.dev" target="_blank" style="color:#888888;">solvia-mini.fly.dev</a>.
                 This is a transactional message related to your request.
               </p>
               <p style="margin:10px 0 0;font-size:12px;color:#888888;line-height:1.6;">
-                <a href="{_PRIVACY_URL}" style="color:#888888;text-decoration:underline;">Privacy Policy</a>
-                &nbsp;·&nbsp;
-                <a href="mailto:{_CONTACT_EMAIL}" style="color:#888888;text-decoration:underline;">Contact us</a>
+                <a href="mailto:{_CONTACT_EMAIL}" style="color:#888888;text-decoration:underline;">Talk to the builder</a>
               </p>
               <p style="margin:10px 0 0;font-size:12px;color:#888888;">
-                © Solvia Labs Pte. Ltd. · Singapore
+                © 2026 Nadra Qamaria
               </p>
             </td>
           </tr>
@@ -130,15 +108,9 @@ Audited URL: {audited_url}
 
 --
 
-Get early access to Solvia — automate every future audit:
-{_WAITLIST_URL}
-
---
-
 You received this email because you requested a free SEO audit at solvia.app.
 This is a transactional message related to your request.
 
-Privacy Policy: {_PRIVACY_URL}
 Contact: {_CONTACT_EMAIL}
 
 © Solvia Labs Pte. Ltd. · Singapore

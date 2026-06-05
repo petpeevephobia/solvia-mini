@@ -1,11 +1,6 @@
-# Ignore local python environments
 .venv/
 backend/.venv/
 __pycache__/
 *.pyc
-
-# Ignore system/IDE logs
-.DS_Store
-.cursor/
 .git/
-.github/
+.cursor/

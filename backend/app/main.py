@@ -24,10 +24,7 @@ app.include_router(v1_router, prefix="/api/v1")
 def health() -> dict[str, str]:
     return {"status": "ok"}
 
-
-# ... (Keep your top imports, app definition, and CORS middleware exactly as they are)
-
-# 🌟 FIX: Explicitly point paths to the absolute /app container workspace
+# FIX: Explicitly point paths to the absolute /app container workspace
 ROOT_DIR = "/app"
 BACKEND_DIR = "/app/backend"
 
