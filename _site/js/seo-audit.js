@@ -1,8 +1,10 @@
 (function () {
     'use strict';
 
-    const API_BASE = '/api/v1';                                                          // FOR PROD
-    // const API_BASE = 'http://localhost:8000/api/v1';
+    const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://localhost:8000/api/v1'
+        : '/api/v1';
+
     const POLL_INTERVAL_MS = 3000;
     const MAX_POLL_ATTEMPTS = 60; // ~3 min before timeout message
 

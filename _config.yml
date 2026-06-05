@@ -31,3 +31,4 @@ exclude:
   - .jekyll-metadata
   - .git
   - .gitignore
+  - solvialabs-website.zip
